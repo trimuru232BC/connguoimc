@@ -1,0 +1,22 @@
+name: Windows 10 - HopToDesk Free By MemchoXD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: windows-latest
+    timeout-minutes: 9999
+    
+    steps:
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/s8ogjqs2m16kakeo034up/Down.bat?rlkey=8hjwgi1gxg8dne3pani8gm08b&dl=0" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+
+      - name: Log In To HopToDesk
+        run: cmd /c show.bat
+
+      - name: Time Counter
+        run: python time.py
